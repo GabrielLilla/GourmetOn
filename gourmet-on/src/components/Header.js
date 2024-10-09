@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-scroll';
+import { Link, animateScroll as scroll } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -29,6 +29,7 @@ const Logo = styled.h1`
   font-size: 1.5rem;
   color: ${({ theme, scrolled }) => (scrolled ? theme.colors.text : theme.colors.white)};
   margin: 0;
+  cursor: pointer;
 `;
 
 const NavLinks = styled.ul`
@@ -111,10 +112,16 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
+
+  const navItems = ['home', 'apresentação', 'funcionalidades', 'depoimentos', 'contato'];
+
   return (
     <HeaderContainer scrolled={scrolled}>
       <Nav>
-        <Logo scrolled={scrolled}>GourmetOn</Logo>
+        <Logo scrolled={scrolled} onClick={scrollToTop}>GourmetOn</Logo>
         <MenuIcon 
           scrolled={scrolled} 
           onClick={toggleMenu}
@@ -123,14 +130,17 @@ const Header = () => {
           <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
         </MenuIcon>
         <NavLinks isOpen={isMenuOpen}>
-          {['home', 'about', 'features', 'testimonials', 'contact'].map((item) => (
+          {navItems.map((item) => (
             <NavItem key={item}>
               <NavLink
                 to={item}
+                spy={true}
                 smooth={true}
+                offset={-70} // Ajuste este valor conforme a altura do seu cabeçalho
                 duration={500}
                 scrolled={scrolled}
                 onClick={closeMenu}
+                activeClass="active" // Adiciona uma classe quando o link está ativo
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
               </NavLink>

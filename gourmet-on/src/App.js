@@ -11,7 +11,6 @@ import Footer from './components/Footer';
 import FeaturedDishes from './components/FeaturedDishes';
 import { getRandomRecipes } from './components/api';
 
-
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -40,12 +39,24 @@ function App() {
       <AppContainer>
         <Header />
         <MainContent>
-          <HeroSection />
-          <FeaturedDishes />
-          <Presentation />
-          <Features recipes={recipes} />
-          <Testimonials />
-          <ContactForm />
+          <section id="home">
+            <HeroSection />
+          </section>
+          <section id="pratos-destaque">
+            <FeaturedDishes />
+          </section>
+          <section id="apresentação">
+            <Presentation />
+          </section>
+          <section id="funcionalidades">
+            <Features recipes={recipes} />
+          </section>
+          <section id="depoimentos">
+            <Testimonials />
+          </section>
+          <section id="contato">
+            <ContactForm />
+          </section>
         </MainContent>
         <Footer />
       </AppContainer>

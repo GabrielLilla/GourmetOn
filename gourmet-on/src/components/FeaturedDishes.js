@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { getRandomRecipes } from './api'; // Certifique-se de que o caminho para o arquivo api.js está correto
+import { getRandomRecipes } from './api';
 
 const FeaturedSection = styled.section`
   padding: 4rem 2rem;
@@ -76,7 +76,7 @@ const FeaturedDishes = () => {
   useEffect(() => {
     const fetchFeaturedDishes = async () => {
       try {
-        const dishes = await getRandomRecipes(4); // Busca 4 pratos aleatórios
+        const dishes = await getRandomRecipes(4);
         setFeaturedDishes(dishes);
       } catch (error) {
         console.error('Erro ao buscar pratos em destaque:', error);
