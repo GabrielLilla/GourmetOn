@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/GourmetOn/static/js/main.0218cb72.js",
+    "static/media/hero-background.png": "/GourmetOn/static/media/hero-background.539624f09c2289f83530.png",
+    "index.html": "/GourmetOn/index.html",
+    "main.0218cb72.js.map": "/GourmetOn/static/js/main.0218cb72.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.0218cb72.js"
+  ]
+}
